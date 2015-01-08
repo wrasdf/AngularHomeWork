@@ -5,7 +5,7 @@ angular.module('myApp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/main/main.html',
+        templateUrl: 'app/views/main.html',
         controller: 'MainCtrl'
       });
 

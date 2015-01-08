@@ -1,14 +1,10 @@
 'use strict';
 
 module.exports = function(config) {
-
   config.set({
-    autoWatch : false,
-
+  	autoWatch : false,
     frameworks: ['jasmine'],
-
-    browsers : ['PhantomJS'],
-
+    browsers: ['PhantomJS'],
     plugins : [
         'karma-phantomjs-launcher',
         'karma-jasmine'

@@ -7,6 +7,7 @@ var $ = require('gulp-load-plugins')();
 var wiredep = require('wiredep');
 
 gulp.task('test', function() { 
+
   var bowerDeps = wiredep({
     directory: 'bower_components',
     exclude: ['bootstrap-sass-official'],
@@ -15,12 +16,14 @@ gulp.task('test', function() {
   });
 
   var testFiles = bowerDeps.js.concat([
-    'src/{app,components}/**/*.js'
+    'src/app/scripts/**/*.js',
+    'test/unit-test/**/*.js'
   ]);
 
   return gulp.src(testFiles)
     .pipe($.karma({
       configFile: 'karma.conf.js',
+      singleRun: true,
       action: 'run'
     }))
     .on('error', function(err) {

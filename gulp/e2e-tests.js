@@ -12,11 +12,8 @@ gulp.task('webdriver-update', $.protractor.webdriver_update);
 gulp.task('webdriver-standalone', $.protractor.webdriver_standalone);
 
 function runProtractor (done) {
-  var testFiles = [
-    'test/e2e/**/*.js'
-  ];
-
-  gulp.src(testFiles)
+  
+  gulp.src(['test/e2e/**/*.js'])
     .pipe($.protractor.protractor({
       configFile: 'protractor.conf.js',
     }))
@@ -29,6 +26,7 @@ function runProtractor (done) {
       browserSync.exit();
       done();
     });
+    
 }
 
 gulp.task('protractor', ['protractor:src']);

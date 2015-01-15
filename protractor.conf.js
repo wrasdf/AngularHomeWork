@@ -1,12 +1,17 @@
 // An example configuration file.
 exports.config = {
   // The address of a running selenium server.
-  //seleniumAddress: 'http://localhost:4444/wd/hub',
+  // seleniumAddress: 'http://localhost:4444/wd/hub',
   //seleniumServerJar: deprecated, this should be set on node_modules/protractor/config.json
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    "chromeOptions": {
+        binary: "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome",
+        args: [],
+        extensions: [],
+    }
   },
 
   // Spec patterns are relative to the current working directly when

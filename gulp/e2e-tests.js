@@ -12,7 +12,6 @@ gulp.task('webdriver-update', $.protractor.webdriver_update);
 gulp.task('webdriver-standalone', $.protractor.webdriver_standalone);
 
 function runProtractor (done) {
-  
   gulp.src(['test/e2e/**/*.js'])
     .pipe($.protractor.protractor({
       configFile: 'protractor.conf.js',
@@ -30,5 +29,14 @@ function runProtractor (done) {
 }
 
 gulp.task('protractor', ['protractor:src']);
-gulp.task('protractor:src', ['serve:e2e', 'webdriver-update'], runProtractor);
-gulp.task('protractor:dist', ['serve:e2e-dist', 'webdriver-update'], runProtractor);
+gulp.task('protractor:src', function(){
+  return gulp.start(['webdriver-update', 'serve:e2e'], function(){
+    runProtractor();
+  });
+});
+// gulp.task('protractor:dist', ['serve:e2e-dist', 'webdriver-update'], runProtractor);
+// gulp.task('protractor:dist', function(){
+//   return gulp.start(['webdriver-update', 'serve:e2e-dist'], function(){
+//     runProtractor();
+//   });
+// });

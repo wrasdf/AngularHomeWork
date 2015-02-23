@@ -13,6 +13,7 @@ exports.config = {
         extensions: [],
     }
   },
+  directConnect: true,
 
   // Spec patterns are relative to the current working directly when
   // protractor is called.

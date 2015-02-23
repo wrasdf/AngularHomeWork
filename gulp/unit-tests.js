@@ -9,7 +9,7 @@ var wiredep = require('wiredep');
 gulp.task('test', function() { 
 
   var bowerDeps = wiredep({
-    directory: 'bower_components',
+    directory: 'src/app/bower_components',
     exclude: ['bootstrap-sass-official'],
     dependencies: true,
     devDependencies: true
@@ -27,7 +27,6 @@ gulp.task('test', function() {
       action: 'run'
     }))
     .on('error', function(err) {
-      // Make sure failed tests cause gulp to exit non-zero
       throw err;
     });
 });

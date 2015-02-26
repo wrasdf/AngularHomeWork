@@ -23,7 +23,7 @@ function browserSyncInit(baseDir, files, browser) {
 
 }
 
-gulp.task('serve', ['partials', 'watch'], function () {
+gulp.task('serve', ['styles', 'partials', 'watch'], function () {
   return browserSyncInit([
     '.tmp',
     'src'
